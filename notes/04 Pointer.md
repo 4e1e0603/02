@@ -1,7 +1,6 @@
-# Ukzateale
+# Ukazatel *pointer*
 
 Proměnná s atributem `pointer` ukazuje na něajký cíl.
-cíl
 
 pojmenovaný
 
@@ -28,20 +27,18 @@ Pomocí rovnítka přistupujeme k cíli = dereference.
 4. Dvojí dealokace (*double free*)
     - U intel komp. může spadnout bez výpisu.
 
-```powershell
+```fortran
 ! Uvolnění neboli dealokace ukazatele.
-    deallocate(p)
+deallocate(p)
 
-    if (associated(p))
-        print *, p
-    end
+if (associated(p))
+    print *, p
+end
 
-    ! Memory leak
-    allocate(p)
-    p = 1.0
-    p => null()
-
-
+! Memory leak
+allocate(p)
+p = 1.0
+p => null()
 ```
 
 Statické pole si neze historicky omezení na velikost okolo 2GB.

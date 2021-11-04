@@ -52,12 +52,6 @@ forall end forrall
 Volání funkce pomocé příkazu `call`
 
 
-## Objektově orientované programování
-
-Fortran 90 přinesl možnost lěpšího modulárního a také objektově orientovaného programováni.
-
-
-
 # Skutečný průběh
 
 __Glosář__
@@ -83,17 +77,14 @@ __Glosář__
 - podtyp *kind*
 - délka *len*
 
-__Lekce 01__
+__Lekce 01__: Základní konstrukce
 Probrali jsem základní konstrukce Fortranu.
 Vysvětlii jsem jaký je rozdíl mezi souborem s příponou `.f` a `.f90`.
 Ukázali jsem si strukturu souboru: program, proměnná a konstanta, funkce, subrutina, modul. Probrali jsem zákaldní číselné a datové typy. Přeložili jsme pár ukázkových programů "hello world" v GNU Fortran (`gfortran`).
 
-__Lekce 02 -- __
+__Lekce 02__
 Čiselné a řetezcové konverze, načítaní a zápis do konzole.
 
-__Lekce 03 -- Pole__
+__Lekce 03__: Ukazatele a pole
 
-# Knihovny pro numerické výpočty
-
-- IMKL
-- LAPACK, BLAS
+__Lekce_XX__: Knihovny pro numerické výpočty (IMKL, LAPACK, BLAS)
