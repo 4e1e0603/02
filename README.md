@@ -3,6 +3,22 @@
 Lectures: see the `notes` directory.
 Examples: see the `source` directory.
 
+
+Installation of gfortran on Windows ...
+
+In `cmd` locating the gfortran.exe
+
+    where gfrotran
+
+gives
+
+    C:\Users\dlanda\gcc\bin\gfortran.exe
+
+Pozor pro VS 2019:
+
+https://stackoverflow.com/questions/65771918/error-no-cmake-fortran-compiler-could-be-found-for-visual-studio-2019-fortran-s
+
+
 ## Build
 
 ```shell
