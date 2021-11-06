@@ -74,3 +74,15 @@ __Slovníček__
 - typ
 - podtyp *kind*
 - délka *len*
+
+
+## Odkazy
+
+Poznámky od doc. L. Hanyka
+- http://geo.mff.cuni.cz/users/hanyk/
+- http://geo.mff.cuni.cz/users/hanyk/NPRF017/index.htm
+- http://geo.mff.cuni.cz/users/hanyk/NGEO022/index.htm
+- http://geo.mff.cuni.cz/users/hanyk/NPRF039/index.htm
+
+Různé zdroje dostupné online.
+- https://annefou.github.io/Fortran/
