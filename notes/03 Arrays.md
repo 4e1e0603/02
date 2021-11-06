@@ -8,6 +8,8 @@ Pole je vlastně atribut datového typu tzn. že máme např pole celých číse
 
 Rozeznáváme pole statické a dynamické. V případě statického pole je jeho velikost známa již v době překladu a naopka u dynamického pole máme možnost měnit jho velikost při běhu programu. Je jasné, že statické pole  a výpočty nad ním je možné lépe optimalizovat, protože překladač má dostatek informací v době překladu programu.
 
+
+- Pole je indexováno od 1 do N.
 - Pole může být argumentem funkce.
 - Pole může být návratovou hodnotou funkce.
 - Sekce pole neboli indexování
@@ -21,6 +23,20 @@ __Pojmy__
 ```fortran
 array ([lower]:[upper][:stride], ...)
 ```
+
+## Deklarace pole
+
+
+## Funkce pro práci s polem
+
+- `size(array[,dim])`
+- `shape(array)`
+- `count(logical_array[, dim])`
+- `sum(array[,dim][,mask])`
+- `any(logical_array[,dim]`
+- `minval`, `maxval`
+- `minloc`, `maxloc`
+
 
 ## Druhy polí
 
