@@ -27,15 +27,15 @@ array ([lower]:[upper][:stride], ...)
 ## Deklarace pole
 
 
-## Funkce pro práci s polem
+## Funkce pro práci s polem *array intrinsic functions*
 
 - `size(array[,dim])`
 - `shape(array)`
 - `count(logical_array[, dim])`
 - `sum(array[,dim][,mask])`
 - `any(logical_array[,dim]`
-- `minval`, `maxval`
-- `minloc`, `maxloc`
+- `minval()`, `maxval()`
+- `minloc()`, `maxloc()`
 
 
 ## Druhy polí

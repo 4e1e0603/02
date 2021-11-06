@@ -4,6 +4,12 @@
 This script manages the project files such as notes and code emxamples.
 
 The script have to be run from the root folder.
+
+TODO
+- Use CMake: I cannot make it work on Windows -- the fortran compiler is not found :( even when I set the right path.
+- Compile all code examples.
+- Run all code examples and capture their output and show it in the notes!
+- We can also compare the outputs from different compilers!
 """
 
 from pathlib import Path
@@ -25,6 +31,14 @@ def list_notes() -> tuple[Path]:
     List the note files stored in the `NOTE_PATH` directory.
     """
     return tuple([path for path in NOTE_PATH.glob("**/*.md")])
+
+
+def read_note_content(note: Path) -> str:
+    ...
+
+
+def check_note_content(note: str) -> bool:
+    ...
 
 
 if __name__ == "__main__":
