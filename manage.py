@@ -41,17 +41,34 @@ def check_note_content(note: str) -> bool:
     ...
 
 
+def create_codes_and_notes_index():
+
+    codes: str = "\n\n".join([str(i) for i in list_codes()])
+    codes_file = "INDEX_CODES.md"
+    with open(f"{codes_file}", mode="w+", encoding="utf-8") as f:
+        f.write(f"# Codes\n\n")
+        f.write(codes)
+
+    notes: str = "\n\n".join([str(i) for i in list_notes()])
+    notes_file = "INDEX_NOTES.md"
+    with open(f"{notes_file}", mode="w+", encoding="utf-8") as f:
+        f.write(f"# NOTES\n\n")
+        f.write(notes)
+
+
 if __name__ == "__main__":
 
     codes = list_codes()
     notes = list_notes()
 
     # Show the code files.
-    print("-----\nCODES\n-----")
+    print("--------\n## CODES\n--------")
     for code in codes:
         print(code.name, code.relative_to(code.parent.parent))
 
     # Show the note files.
-    print("-----\nNOTES\n-----")
+    print("--------\n## NOTES\n--------")
     for note in notes:
         print(note.name, note.relative_to(note.parent.parent))
+
+    create_codes_and_notes_index()
