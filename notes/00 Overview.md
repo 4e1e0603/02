@@ -94,6 +94,27 @@ Kompilaci jednoho souboru provedeme např. pomocé GNU Fortra kompilátru takto.
 - Pokračování řádku se zajistí pomocí znaku `&`. (Poznámka: Podobně v jazyku Python se používá zpětné lomítko `\`.)
 - Příkazy se na řádku dají oddělit pomocí znaku `;`.  (Poznámka: Stejně tak v jazyku Python.)
 
+## Instalace kompilátoru pod různými OS
+
+TODO Windows a Ubuntu
+
+Pokdu máme naistalován gfortran, můžeme se podívat, kde je umístěn.
+
+V `cmd` zapíšeme příkaz
+
+    where gfrotran
+
+který např. vrací
+
+    C:\Users\dlanda\gcc\bin\gfortran.exe
+
+Pozor pro VS 2019:
+
+## Jak použít CMake a Fortran
+
+TODO
+
+https://stackoverflow.com/questions/65771918/error-no-cmake-fortran-compiler-could-be-found-for-visual-studio-2019-fortran-s
 
 ## Pevný a volný formát
 

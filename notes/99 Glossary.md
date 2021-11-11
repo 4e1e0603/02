@@ -1,0 +1,22 @@
+# Pojmy
+
+- attribut
+- literál
+- inicializační výraz
+- standardní typ
+- odvozený typ
+- modul
+- subrutina
+- procedura
+- funkce
+- program
+- implicitní typování
+- přetypování
+- skalár
+- pole
+  - statické
+  - dynamické
+  - alokovatelné
+- typ
+- podtyp *kind*
+- délka *len*
