@@ -21,7 +21,7 @@ We do not repeat the name of the program or procedure after the `end`  unless it
         ! code !
     end
 
-    fucntion function_name
+    function function_name
         implicit none
         ! code !
     end
