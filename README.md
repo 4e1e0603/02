@@ -12,7 +12,21 @@ At this moment, you can manually compile each example as
 
 We are working on Make/CMake support.
 
-## Lectures (Jak šel čas)
+## Coding style
+
+We do not repeat the name of the program or procedure after the `end`  unless it is very long script.
+
+    program program_name
+        implicit none
+        ! code !
+    end
+
+    fucntion function_name
+        implicit none
+        ! code !
+    end
+
+## Lectures
 
 __Lesson 01__: Fundamentals
 
@@ -29,9 +43,57 @@ __Lesson 03__: Pointers and arrays
 Probrali jsme práci s ukazateli: deklarace ukazatale, alokace ukazatele, dealokace ukazatele, ukazatel na skalár, ukazatel na pole.
 Ukázali jsem si jaké problémy mohou nastat při práci s ukazateli.
 
+Přístup k kednomu prvku pole, přístup k více prvkům pole tzv. řez (*slice*).
+
+
 __Lesson 04__: ...
 
-...
+### Vnitřní procedury (*intrinsic procedures*)
+
+Vnitřní procedury jsou a procedury  definované standardem a zabudované do implementace Fortranu. Rozeznáváme
+
+- dotazovací funkce (*array inquiry functions*) vrací informace o vlastnostech pole jako
+  - `shape(array)`
+  - `size(array[,dim])`
+  - `lbound(array[,dim])`, `ubound(array[,dim])`
+  - `allocated(array)`
+
+- prvkové funkce (*???*) vrací skalár nebo pole vyhodnocené prvek po prvku
+  - `abs`, `dim`, `max`, `min`, `random_number`
+
+-  multiplikační funkce jako skalární součin a maticové násobení
+  - `dot_product`, `matmul`
+
+- transformační funkce
+  - `all`, `any`, `count`, `maxval`, `minval`, `product`, `sum`, `maxloc`, `minloc`
+
+- manipulační funkce
+  - `merge`, `pack`, __`reshape`__, `spread`, `cshift`, `eoshift`, `transpose`
+
+### Vnější procedury (*external procedures*)
+
+Všechny procedury, které nejsou definované standardem a tudíž musí být námi implementovány.
+Jednoduše řečeno, vnitřní procedury odpovídají zabudovaným funkcím, v jiných jazycích se nacházejí v tzv. standardní knihovně
+a vnější procedury jsou všechny ostatní ,které vytvoří programátor.
+
+Dále rozlišujeme
+
+- rekurzivní procedury (*recursive subroutine/function*)
+- čisté procedury neboli čisté funkce (*pure function*), tj. funkce bez vedlejších efektů tak jak to známe z funkcionálních jazyků (verze 1995).
+- prvkové procedury
+- explicitní rozhraní (*explicit interface*)
+- interface blok
+-
+
+__Lesson XX__ Tvoříme konzolový program
+
+- Command Line Interface (CLI) a argumenty příkazového řádku
+- Proměnné prostředí
+
+__Lesson XX__ Vlastní datové typy, struktury
+
+__Lesson XX__ Objekty a objektově orientované programování (verze 2003+)
+
 
 __Lekce_XX__: Numerical libraries (IMKL, LAPACK, BLAS)
 

@@ -10,6 +10,7 @@ Rozeznáváme pole statické a dynamické. V případě statického pole je jeho
 
 
 - Pole je indexováno od 1 do N.
+- Pole jsou uloženy po sloupcích => ???, narozdíl např. od jiných jazyků.
 - Pole může být argumentem funkce.
 - Pole může být návratovou hodnotou funkce.
 - Sekce pole neboli indexování
@@ -56,5 +57,9 @@ Mluvíme pak o __ukazatelových polích__
 ### Příklady
 
 Deklarace 1D pole
+
+
+
 Deklarace 2D pole
+
 Deklarace 3D pole
