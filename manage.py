@@ -12,8 +12,14 @@ TODO
 - We can also compare the outputs from different compilers!
 """
 
+import sys
 from pathlib import Path
 
+
+Configuration = {
+    "note_path": Path("./notes"),
+    "code_path": Path("./source"),
+}
 
 NOTE_PATH = Path("./notes")
 CODE_PATH = Path("./source")
@@ -56,19 +62,49 @@ def create_codes_and_notes_index():
         f.write(notes)
 
 
+def remove_all_exe():
+    """
+    Removes all executable (`.exe`) files accidently build outside the
+    build folder
+    """
+    for filename in Path(".").glob("**/*.exe"):
+        filename.unlink()
+
+
+def main(argv=None) -> None:
+
+    if len(argv) == 1:
+        print("No action selected!")
+        print("Please write `index` or `clean`")
+        return
+
+    # Make and index of notes and codes.
+    if argv[1] == "index":
+        codes = list_codes()
+        notes = list_notes()
+
+        # Show the code files.
+        print("--------\n## CODES\n--------")
+        for code in codes:
+            print(code.name, code.relative_to(code.parent.parent))
+
+        # Show the note files.
+        print("--------\n## NOTES\n--------")
+        for note in notes:
+            print(note.name, note.relative_to(note.parent.parent))
+
+        create_codes_and_notes_index()
+
+    # Clean a project directory.
+    elif argv[1] =="clean":
+        print("clean")
+        remove_all_exe()
+
+
 if __name__ == "__main__":
-
-    codes = list_codes()
-    notes = list_notes()
-
-    # Show the code files.
-    print("--------\n## CODES\n--------")
-    for code in codes:
-        print(code.name, code.relative_to(code.parent.parent))
-
-    # Show the note files.
-    print("--------\n## NOTES\n--------")
-    for note in notes:
-        print(note.name, note.relative_to(note.parent.parent))
-
-    create_codes_and_notes_index()
+    try:
+        main(sys.argv)
+        sys.exit(0) # success
+    except Exception as exc:
+        print(exc)
+        sys.exit(1) # failure

@@ -63,3 +63,7 @@ Deklarace 1D pole
 Deklarace 2D pole
 
 Deklarace 3D pole
+
+## Odkazy
+
+- http://www.mathcs.emory.edu/~cheung/Courses/561/Syllabus/6-Fortran/array4.html

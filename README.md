@@ -12,6 +12,12 @@ At this moment, you can manually compile each example as
 
 We are working on Make/CMake support.
 
+## Manage
+
+    python manage.py index   # works
+    python manage.py clean   # works
+    python manage.py release # todo
+
 ## Coding style
 
 We do not repeat the name of the program or procedure after the `end`  unless it is very long script.
@@ -44,6 +50,9 @@ Probrali jsme práci s ukazateli: deklarace ukazatale, alokace ukazatele, dealok
 Ukázali jsem si jaké problémy mohou nastat při práci s ukazateli.
 
 Přístup k kednomu prvku pole, přístup k více prvkům pole tzv. řez (*slice*).
+
+Alokovatelné pole jsou bezpěčné, protože zanikají na konci procedury.
+
 
 
 __Lesson 04__: ...
@@ -83,7 +92,6 @@ Dále rozlišujeme
 - prvkové procedury
 - explicitní rozhraní (*explicit interface*)
 - interface blok
--
 
 __Lesson XX__ Tvoříme konzolový program
 
@@ -98,3 +106,25 @@ __Lesson XX__ Objekty a objektově orientované programování (verze 2003+)
 __Lekce_XX__: Numerical libraries (IMKL, LAPACK, BLAS)
 
 ...
+
+## Some useful tools and links
+
+This will be later moved to standalone file in notes.
+
+__Fortran žije!__
+- https://insmart.cz/fortran-je-zpet-v-top-20/
+
+__Format the source code ay.__
+The `fprettify` is mordern Fortran auto formatter written in Python, similar to `black` or `gofmt`, `rustfmt` etc.
+- https://github.com/pseewald/fprettify
+
+__Unit testing of Fortran code__
+- https://fortranwiki.org/fortran/show/Unit+testing+frameworks
+I think that `Vegetables` seems promising.
+
+__Generic programming__
+- https://fortranwiki.org/fortran/show/Generic+programming
+
+
+
+- https://github.com/pseewald
