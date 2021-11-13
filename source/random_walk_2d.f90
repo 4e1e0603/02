@@ -99,10 +99,10 @@ program random_walk_simulation
 
     real :: walk(1:TRIALS, 1:STEPS, 1:3)
 
-    ! Compute the random walk simualtion.
+    ! Compute the random walk simulation.
     walk = simple_random_walk_2D(TRIALS, STEPS)
 
-    ! Write the result to standard output.
+    ! Write the result to the standard output.
     do trial = 1, TRIALS
         do step = 1, STEPS
             write(*, *) walk(trial, step, 1), walk(trial, step, 2), walk(trial, step, 3)
