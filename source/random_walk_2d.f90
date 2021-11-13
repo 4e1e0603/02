@@ -26,22 +26,23 @@ public :: simple_random_walk_2D
 
 contains
 
-subroutine evolve_coordinate(r, c)
+pure function evolve_coordinate(random, current) result(next)
     !! Evolve the coordinate value based on the given random value.
     !! (This is a helper procedure.)
     implicit none
 
-    real, intent(in) :: r  ! The random value between [0,1]
-    real, intent(out) :: c ! The coordinat's current value.
+    real, intent(in) :: random  ! The random number between [0,1].
+    real, intent(in) :: current ! The current coordinate value.
+    real :: next
 
     ! Choose direction and update coordinate.
-    if (r >= 0.5) then
-        c = c + 1
+    if (random >= 0.5) then
+        next = current + 1
     else
-        c = c - 1
+        next = current - 1
     end if
 
-end subroutine
+end function
 
 function simple_random_walk_2D(steps, trials) result(walks)
     !! Realize 2-dimensional simple random walk on ℤ for the given number of steps.
@@ -66,10 +67,10 @@ function simple_random_walk_2D(steps, trials) result(walks)
         do step = 1, steps
 
             call random_number(rvalue)
-            call evolve_coordinate(rvalue, x)
+            x = evolve_coordinate(rvalue, x)
 
             call random_number(rvalue)
-            call evolve_coordinate(rvalue, y)
+            y = evolve_coordinate(rvalue, y)
 
             ! Save the coordinates and Euclidean distance
             walks(trial, step, 1) = x
