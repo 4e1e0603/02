@@ -125,6 +125,7 @@ I think that `Vegetables` seems promising.
 __Generic programming__
 - https://fortranwiki.org/fortran/show/Generic+programming
 
-
+__Enumerations in Fortran__
+- https://github.com/MichaelSiehl/How-to-Code-Enumerations-in-Fortran/
 
 - https://github.com/pseewald
