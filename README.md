@@ -129,3 +129,9 @@ __Enumerations in Fortran__
 - https://github.com/MichaelSiehl/How-to-Code-Enumerations-in-Fortran/
 
 - https://github.com/pseewald
+
+__Mistakes in Fortran 90+__
+- http://www.cs.rpi.edu/~szymansk/OOF90/bugs.html#4
+
+
+- https://milancurcic.com/2019/05/22/map-filter-reduce-in-fortran-2018.html

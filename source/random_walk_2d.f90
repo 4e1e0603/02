@@ -25,15 +25,17 @@ module random_walk
 
     private
 
-    public :: simple_random_walk_2D
+    public :: simple_random_walk_2D ! random_walk_simulation
 
     contains
 
-    subroutine pick_coordinate(c, r)
+    ! Evolve the coordinate value based on the given random value.
+    ! (This is a helper procedure.)
+    subroutine evolve_coordinate(r, c)
         implicit none
 
-        real, intent(in) :: r
-        real, intent(inout) :: c
+        real, intent(in) :: r  ! The random value between [0,1]
+        real, intent(out) :: c ! The coordinat's current value.
 
         if (r >= 0.5) then
             c = c + 1
@@ -43,34 +45,40 @@ module random_walk
 
     end subroutine
 
-    ! Realize 2-dimensional dicrete random walk for the given number of steps.
-    !
-    ! We call this random walk as simple because thre are no restrictions on the step to
-    ! be taken.
-    !
-    function simple_random_walk_2D(steps) result(walk)
+
+    ! Realize 2-dimensional simple random walk on ℤ for the given number of steps.
+    ! Computes the `x`, `y` coordinates and Euclidean distance from the origin,
+    function simple_random_walk_2D(steps, trials) result(values)
         implicit none
 
-        integer, intent(in) :: steps                  ! The input variable.
-        real, dimension(:,:), allocatable :: walk     ! The output variable.
+        integer, intent(in) :: steps, trials            ! The input variable.
+        real, dimension(:,:,:), allocatable :: values   ! The output variable for (x,y,d) values.
 
-        real :: rvalue                                ! The random value.
-        real :: x = 0.0,  y = 0.0                     ! The starting position.
-        integer :: step                               ! A current step.
+        real :: rvalue                                  ! The random value.
+        real :: x, y                                    ! The coordinates.
+        integer :: step, trial                          ! A current step.
 
-        allocate(walk(1:3,1:steps))                   ! Set the size of the output array.
-                                                      ! We store coordinates as [x, y, ..., x, y].
-        do step = 1, steps
+        allocate(values(1:trials,1:steps,1:3))          ! Set the size of the output array.
+                                                        ! We store coordinates as [x, y, ..., x, y].
+        do trial = 1, trials
+            x = 0.0
+            y = 0.0
+            do step = 1, steps
 
-            call random_number(rvalue)                ! The `x` coordinate direction choice.
-            call pick_coordinate(x, rvalue)
+                ! The `x` coordinate direction choice.
+                call random_number(rvalue)
+                call evolve_coordinate(rvalue, x)
 
-            call random_number(rvalue)                ! The `y` coordinate direction choice.
-            call pick_coordinate(y, rvalue)
+                ! The `y` coordinate direction choice.
+                call random_number(rvalue)
+                call evolve_coordinate(rvalue, y)
 
-            walk(1, step) = x                         ! Save the `(x, y, d)` coordinates and distance
-            walk(2, step) = y                         ! and calculate Euclidean distance
-            walk(3, step) = sqrt(real(x * x) + y*y)
+                 ! Save the `(x, y, d)` coordinates and calculate Euclidean distance
+                values(trial, step, 1) = x
+                values(trial, step, 2) = y
+                values(trial, step, 3) = sqrt(x ** 2 + y ** 2)
+
+            end do
         end do
 
     end function
@@ -86,15 +94,20 @@ program random_walk_simulation
 
     implicit none
 
-    integer :: step
-    integer, parameter :: N = 10
+    integer :: step, trial
+    integer, parameter :: STEPS = 10, TRIALS = 10
 
-    real :: walk(1:3, 1:N)
+    real :: walk(1:TRIALS, 1:STEPS, 1:3)
 
-    walk = simple_random_walk_2D(N)
+    walk = simple_random_walk_2D(TRIALS, STEPS)
 
-    do step = 1, N
-        print '((f5.1) "," (f5.1) "," (f5.1))', walk(1, step), walk(2, step), walk(3, step)
+    do trial = 1, TRIALS
+        do step = 1, STEPS
+            ! print '((f5.1) "," (f5.1) "," (f5.1))', walk(trial, step, 1), walk(trial, step, 2), walk(trial, step, 3)
+            write(*, *) walk(trial, step, 1), walk(trial, step, 2), walk(trial, step, 3)
+        end do
+        ! print '(A)', new_line('')
+        write(*, *) ''  ! this gives you the line break
     end do
 
 end program
