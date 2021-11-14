@@ -20,17 +20,22 @@ We are working on Make/CMake support.
 
 ## Coding style
 
-We do not repeat the name of the program or procedure after the `end`  unless it is very long script.
+We do not repeat the name of the program or procedure after the `end`  unless it is a very long script.
 
     program program_name
         implicit none
         ! code !
-    end
+    end program     ! <<< no-program-name-here
 
     function function_name
         implicit none
         ! code !
-    end
+    end function    ! <<< no-function-name-here
+
+    function module_name
+        implicit none
+        ! code !
+    end module      ! <<< no-function-name-here
 
 ## Lectures
 
@@ -52,8 +57,6 @@ Ukázali jsem si jaké problémy mohou nastat při práci s ukazateli.
 Přístup k kednomu prvku pole, přístup k více prvkům pole tzv. řez (*slice*).
 
 Alokovatelné pole jsou bezpěčné, protože zanikají na konci procedury.
-
-
 
 __Lesson 04__: ...
 
@@ -109,13 +112,13 @@ __Lekce_XX__: Numerical libraries (IMKL, LAPACK, BLAS)
 
 ## Some useful tools and links
 
-This will be later moved to standalone file in notes.
+This will be later moved to a standalone file in notes.
 
 __Fortran žije!__
 - https://insmart.cz/fortran-je-zpet-v-top-20/
 
 __Format the source code ay.__
-The `fprettify` is mordern Fortran auto formatter written in Python, similar to `black` or `gofmt`, `rustfmt` etc.
+The `fprettify` is a modern Fortran auto-formatter written in Python, similar to `black` or `gofmt`, `rustfmt` etc.
 - https://github.com/pseewald/fprettify
 
 __Unit testing of Fortran code__
