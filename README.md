@@ -110,6 +110,8 @@ __Lekce_XX__: Numerical libraries (IMKL, LAPACK, BLAS)
 
 ...
 
+- TODO `Forall` Example
+
 ## Some useful tools and links
 
 This will be later moved to a standalone file in notes.
