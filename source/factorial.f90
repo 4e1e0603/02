@@ -1,7 +1,7 @@
 !
 ! Example: Shows how to compute factorials.
 !
-module factorials
+module factorial
 
 contains
 
@@ -42,7 +42,7 @@ end module
 
 program example_factorial_iterative
 
-    use factorials, only: factorial_iterative, factorial_recursive
+    use factorial, only: factorial_iterative, factorial_recursive
 
     implicit none
 
