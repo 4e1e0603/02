@@ -621,3 +621,6 @@ __Mistakes in Fortran 90+__
 - https://github.com/Fortran-FOSS-Programmers
 
 - https://riptutorial.com/Download/fortran.pdf
+
+__DEBUGING__
+- https://undo.io/resources/debugging-fortran-code-gdb/

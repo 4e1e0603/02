@@ -58,7 +58,8 @@ module random_walk
 
     contains
 
-    pure function update_position(random, current) result(updated)
+    ! pure
+    function update_position(random, current) result(updated)
         !! Update the current position.
         !!
         !!            N
@@ -80,25 +81,28 @@ module random_walk
 
         if (random >= 0.0 .and. random < 0.25) then
             updated % x = (current % x) - 1 ! W
+            ! print *, "x - 1"
         end if
 
         if (random >= 0.25 .and. random < 0.5) then
             updated % x = (current % x) + 1 ! E
+            ! print *, "x + 1"
         end if
 
         if (random >= 0.5 .and. random < 0.75) then
             updated % y = (current % y) - 1 ! S
+            ! print *, "y - 1"
         end if
 
-        if (random >= 0.75 .and. random <= 1.0) then
+        if (random >= 0.75 .and. random < 1.0) then
             updated % y = (current % y) + 1 ! E
+            ! print *, "y + 1"
         end if
-
 
     end function
 
-
-    pure function simple_random_walk_2D(steps, trials, randoms) result(walks)
+    ! pure
+    function simple_random_walk_2D(steps, trials, randoms) result(walks)
         !! Realize 2-dimensional simple random walk on ℤ for the given number of steps.
         !!
         !! @param steps
@@ -156,22 +160,18 @@ program random_walk_simulation
     call random_number(randoms)
     ! walks = simple_random_walk_2D(TRIALS, STEPS, randoms)
 
+    ! =========================================================================
     ! TESTS
+    ! -----
     ! GIVEN We are on postion 0,0, WHEN the rundom number is < 0.5 THEN we should move in `x` direction.
-    print *, "CURRENT", current
-    print *, "UPDATED",  updated
+    ! =========================================================================
 
-    updated = update_position(randoms(1, 1), current)
-
-    print *, "RANDOM", randoms(1, 1)
-
-    if (randoms(1, 1) < 0.5) then
-        print *, "SHOULD GO X", (updated % x) != 0.0
-    end if
-    print *, "UPDATED", updated
-
-
+    do step = 1, size(randoms)
+        updated = update_position(randoms(1, step), updated)
+        print *, "UPDATED", (updated % x), (updated % y), randoms(1, step)
+    end do
     ! Write the result to the standard output.
+
     ! do trial = 1, TRIALS
     !     do step = 1, STEPS
     !         write(*,'(f0.1,a,f0.1,a,f0.4)')  &
@@ -181,7 +181,5 @@ program random_walk_simulation
     !     end do
     !     write(*, *) ''
     ! end do
-
-
 
 end program
