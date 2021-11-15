@@ -3,44 +3,7 @@
 ! PROGRAM:
 !   Random walk simulation
 !
-!   To simulate and analyze various types of random walks on the lattice in the plane (all steps are
-!   of the same length d = 1, but the direction is randomly chosen from a certain set of prescribed
-!   possibilities).
-!
-!   1. Simple random walk on 2-dimensional lattice
-!      steps in any of the four directions  with the same probability.
-!
-!   2. Restricted random walk on 2-dimensional lattice
-!     1. without immediate returns
-!        steps in three possible directions with the same probability, the first step is in any direction
-!
-! REFERENCE:
-! - http://utf.mff.cuni.cz/vyuka/NTMF021/homeworks/HW_task_1.pdf
-! - http://compphysics.github.io/ComputationalPhysics/doc/pub/rw/html/._rw-bs061.html
-! - https://github.com/jakehanson/2D_RANDOM_WALK/blob/master/main.cpp
-! - https://balitsky.com/teaching/phys420/Ph4_random.pdf
-! - https://blogs.sas.com/content/iml/2015/07/08/drunkards-walk.html
-! - https://blogs.sas.com/content/iml/2015/08/12/2d-drunkards-walk.html
-! - https://gist.github.com/rsnemmen/879cb5452effcf2d20a8f0041b8724e4
-! - https://cyber.dabamos.de/programming/modernfortran/random-numbers.html
-!
-! DECISIONS:
-! ---
-! TODO I decided to pass a random numbers as values to functions.
-! The reason is that it is more testable the generatei inside functions.
-! We can pregenreate random values
-! at the beginning of the program and then pass them down to procedures/fucntions.
-! ---
-! I also decided to use type (structure) `position`.
-! The reason is that it better express a domain model and encapsultes `x`, `y` coordinates.
-! ---
-! Can  we determined trials and steps from random?
-!
-!
-! TODO function persistent_random_walk_2D(steps, trials) result() ... end function
-! TODO function restricted_random_walk_2D(steps, trials) result() ... end function
-! TODO Simple command line interface.
-! HOWTO Write an array to CSV like format?
+! See README file for more information.
 !
 module random_walk
 
@@ -103,12 +66,12 @@ module random_walk
 
     ! pure
     function simple_random_walk_2D(steps, trials, randoms) result(walks)
-        !! Realize 2-dimensional simple random walk on ℤ for the given number of steps.
+        !! Realize 2-dimensional simple random walk on ℤ for the given number of steps and trials.
         !!
-        !! @param steps
-        !! @param trials
-        !! @param randoms
-        !! @return  The  `x`, `y` position coordinates and Euclidean distance from the origin.
+        !! @param steps   The number of random walk steps.
+        !! @param trials  The total number of random walk experiments.
+        !! @param randoms The array with random numbers with size = (trials, steps)
+        !! @return        The  `x`, `y` position coordinates and Euclidean distance from the origin.
         !!
         implicit none
 
@@ -138,48 +101,3 @@ module random_walk
     end function
 
 end module
-
-
-program random_walk_simulation
-
-    use random_walk, only: simple_random_walk_2D, position, update_position
-
-    use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
-
-    implicit none
-
-    integer :: step, trial
-    integer, parameter :: STEPS = 10, TRIALS = 1
-
-    type(position) :: current, updated
-
-    real :: walks(1:TRIALS, 1:STEPS, 1:3)
-    real :: randoms(1:TRIALS, 1:STEPS)
-
-    ! Compute the random walk simulation.
-    call random_number(randoms)
-    ! walks = simple_random_walk_2D(TRIALS, STEPS, randoms)
-
-    ! =========================================================================
-    ! TESTS
-    ! -----
-    ! GIVEN We are on postion 0,0, WHEN the rundom number is < 0.5 THEN we should move in `x` direction.
-    ! =========================================================================
-
-    do step = 1, size(randoms)
-        updated = update_position(randoms(1, step), updated)
-        print *, "UPDATED", (updated % x), (updated % y), randoms(1, step)
-    end do
-    ! Write the result to the standard output.
-
-    ! do trial = 1, TRIALS
-    !     do step = 1, STEPS
-    !         write(*,'(f0.1,a,f0.1,a,f0.4)')  &
-    !              walks(trial, step, 1), '|', &
-    !              walks(trial, step, 2), '|', &
-    !              walks(trial, step, 3)
-    !     end do
-    !     write(*, *) ''
-    ! end do
-
-end program
