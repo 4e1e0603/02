@@ -62,12 +62,27 @@ def create_codes_and_notes_index():
         f.write(notes)
 
 
-def remove_all_exe():
+def remove_all_executables():
     """
-    Removes all executable (`.exe`) files accidently build outside the
-    build folder
+    Removes all Windows executable (`.exe`) files.
     """
     for filename in Path(".").glob("**/*.exe"):
+        filename.unlink()
+
+
+def remove_all_modules():
+    """
+    Removes all Fortran module (`.mod`) files.
+    """
+    for filename in Path(".").glob("**/*.mod"):
+        filename.unlink()
+
+
+def remove_all_objects():
+    """
+    Removes all object (`.o`) files.
+    """
+    for filename in Path(".").glob("**/*.o"):
         filename.unlink()
 
 
@@ -97,14 +112,16 @@ def main(argv=None) -> None:
 
     # Clean a project directory.
     elif argv[1] =="clean":
-        print("clean")
-        remove_all_exe()
+        remove_all_modules()
+        remove_all_objects()
+        remove_all_executables()
+        print("[---CLEANED---]")
 
 
 if __name__ == "__main__":
     try:
         main(sys.argv)
-        sys.exit(0) # success
+        sys.exit(0) # SUCCESS
     except Exception as exc:
         print(exc)
-        sys.exit(1) # failure
+        sys.exit(1) # FAILURE
