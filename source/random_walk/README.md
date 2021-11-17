@@ -49,3 +49,4 @@ HOWTO Write an array to CSV like format?
 - https://blogs.sas.com/content/iml/2015/08/12/2d-drunkards-walk.html
 - https://gist.github.com/rsnemmen/879cb5452effcf2d20a8f0041b8724e4
 - https://cyber.dabamos.de/programming/modernfortran/random-numbers.html
+- https://stackoverflow.com/questions/24187913/does-fortran-95-allow-two-subroutines-to-have-the-same-name-if-the-argument-list?rq=1
