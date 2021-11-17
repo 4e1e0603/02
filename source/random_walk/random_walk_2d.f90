@@ -81,8 +81,8 @@ module random_walk
 
         allocate(walks(1:trials, 1:steps, 1:3))         ! Allocate the output array.
 
-        do trial = 1, trials
-            ! Reset the position before each run.
+        do trial = 1, trials ! vs `do concurrent (trial = 1:trials)`
+            ! Reset the position before each run: is it save with `do concurrent`?
             current%x = 0.0
             current%y = 0.0
 
