@@ -622,5 +622,8 @@ __Mistakes in Fortran 90+__
 
 - https://riptutorial.com/Download/fortran.pdf
 
-__DEBUGING__
+__Debugging__
 - https://undo.io/resources/debugging-fortran-code-gdb/
+
+__Best practices__
+- http://diracprogram.org/doc/release-17/programmers/good_fortran_90_practices.html

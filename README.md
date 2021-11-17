@@ -12,6 +12,26 @@ At this moment, you can manually compile each example as
 
 We are working on Make/CMake support.
 
+To compile a module as an object use
+
+    gfortran -c path/to/module_name.f90 -o module_name
+
+To compile program and link object as an executable use
+
+    gfortran path/to/program path/to/object -o program_name
+
+### What to do with `Error in compiling: Can't open module file`?
+
+You have to compile your module first before an executable as an objects or
+you can compile them together but there have to be listed first on command line.
+
+    gfortran path/to/module path/to/program  -o program_name
+             ^^^^^^^^^^^^^^ See that modules are compile first!
+
+### What are these `.mod` files?
+
+- https://fortranwiki.org/fortran/show/Compiler+.MOD+files
+
 ## Manage
 
 We use Python 3.5+.
