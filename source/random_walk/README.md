@@ -4,24 +4,27 @@ To simulate and analyze various types of random walks on the lattice in the plan
 of the same length d = 1, but the direction is randomly chosen from a certain set of prescribed
 possibilities).
 
-1. Simple random walk on 2-dimensional lattice
+- [x] Simple random walk on 2-dimensional lattice
    steps in any of the four directions  with the same probability.
 
-2. Restricted random walk on 2-dimensional lattice
-  1. without immediate returns
+- [ ] Restricted random walk on 2-dimensional lattice
+  - without immediate returns
      steps in three possible directions with the same probability, the first step is in any direction
 
 ## Compile and run
 
 Compile and run main program:
 
-   gfortran .\random_walk_2d.f90 .\random_walk_2d_main.f90 -o .\random_walk_2d_main.exe
-   random_walk_2d_main.exe
+```
+gfortran .\random_walk_2d.f90 .\random_walk_2d_main.f90 -o .\random_walk_2d_main.exe
+random_walk_2d_main.exe
+```
 
 Compile and run test program:
-
-   gfortran .\random_walk_2d.f90 .\random_walk_2d_test.f90 -o .\random_walk_2d_test.exe
-   random_walk_2d_test.exe
+```
+gfortran .\random_walk_2d.f90 .\random_walk_2d_test.f90 -o .\random_walk_2d_test.exe
+random_walk_2d_test.exe
+```
 
 ## Decisions
 
