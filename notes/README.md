@@ -604,6 +604,7 @@ The `fprettify` is a modern Fortran auto-formatter written in Python, similar to
 __Unit testing of Fortran code__
 - https://fortranwiki.org/fortran/show/Unit+testing+frameworks
 I think that `Vegetables` seems promising.
+- https://github.com/dongli/fortran-unit-test
 
 __Generic programming__
 - https://fortranwiki.org/fortran/show/Generic+programming

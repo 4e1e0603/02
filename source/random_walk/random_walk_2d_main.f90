@@ -1,3 +1,10 @@
+! -*- coding: utf-8 -*-
+
+!! PROGRAM: Random walk simulation
+!! VERSION: 0.1.0
+!!
+!! See README.md for more information.
+!!
 program random_walk_simulation
 
     use random_walk, only: simple_random_walk_2D, position, update_position
@@ -7,17 +14,17 @@ program random_walk_simulation
     implicit none
 
     integer :: step, trial
-    integer, parameter :: STEPS = 10, TRIALS = 1
+    integer, parameter :: STEPS = 1000, TRIALS = 3
 
     type(position) :: current, updated
 
     real :: walks(1:TRIALS, 1:STEPS, 1:3)
     real :: randoms(1:TRIALS, 1:STEPS)
 
-    ! Compute the random walk simulation.
     call random_number(randoms)
 
-    walks = simple_random_walk_2D(TRIALS, STEPS, randoms)
+    walks = simple_random_walk_2D(trials=TRIALS, steps=STEPS, randoms=randoms)
+
     !Write the result to the standard output.
     do trial = 1, TRIALS
         do step = 1, STEPS

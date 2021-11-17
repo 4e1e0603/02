@@ -15,15 +15,18 @@ possibilities).
 
 Compile and run main program:
 
-   gfortran .\random_walk_2d_main.f90 .\random_walk_2d.f90 -o .\random_walk_2d_main.exe
+   gfortran .\random_walk_2d.f90 .\random_walk_2d_main.f90 -o .\random_walk_2d_main.exe
    random_walk_2d_main.exe
 
 Compile and run test program:
 
-    gfortran .\random_walk_2d_test.f90 .\random_walk_2d.f90 -o .\random_walk_2d_test.exe
+   gfortran .\random_walk_2d.f90 .\random_walk_2d_test.f90 -o .\random_walk_2d_test.exe
    random_walk_2d_test.exe
 
 ## Decisions
+
+I ALWAY USE KEYWORD ARGUMENTS http://www.mrao.cam.ac.uk/~pa/f90Notes/HTMLNotesnode151.html
+I SPENT HOURS OF DEBUGGING WHEN ACCIDENTALLY SWAPPED INTEGER ARGUMENTS!
 
 TODO I decided to pass a random numbers as values to functions.
 The reason is that it is more testable the generatei inside functions.
@@ -50,3 +53,7 @@ HOWTO Write an array to CSV like format?
 - https://gist.github.com/rsnemmen/879cb5452effcf2d20a8f0041b8724e4
 - https://cyber.dabamos.de/programming/modernfortran/random-numbers.html
 - https://stackoverflow.com/questions/24187913/does-fortran-95-allow-two-subroutines-to-have-the-same-name-if-the-argument-list?rq=1
+- https://en.wikibooks.org/wiki/Fortran/error_handling)
+- http://www.luckingtechnotes.com/fortran-error-handling-techniques/
+- https://pages.mtu.edu/~shene/COURSES/cs201/NOTES/chap04/nested-do.html
+- http://www.mathcs.emory.edu/~cheung/Courses/561/Syllabus/6-Fortran/modules.html
