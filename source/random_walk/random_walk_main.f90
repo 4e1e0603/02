@@ -7,10 +7,10 @@
 !!
 program random_walk_main
 
+    use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
+
     ! use random_walk_1d, only: simulate_1d => simulate
     use random_walk_2d, only: simulate_2d => simulate
-
-    use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
 
     implicit none
 

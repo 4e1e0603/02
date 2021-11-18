@@ -1,7 +1,7 @@
 ! -*- coding: utf-8 -*-
 
-!! Randowm walk 1D simulation module.
-!! Randowm walk 1D simulation module.
+!! Randowm walk 1D (discrete time and space) simulation module.
+!! Randowm walk 1D (discrete time and space) simulation module.
 
 module random_walk_1d
     implicit none
