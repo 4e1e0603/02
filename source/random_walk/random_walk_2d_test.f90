@@ -14,7 +14,8 @@
 program random_walk_2d_test
 
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
-    use random_walk, only: position, update_position, simple_random_walk_2D
+
+    use random_walk, only: position, update_position, update_position_restricted, simple_random_walk_2D
 
     implicit none
 
@@ -62,5 +63,15 @@ program random_walk_2d_test
         current = update_position(0.8, current) ! up
         print *, ((current % x) == -2.0 .and. ((current % y) == 2.0)), &
         "GIVEN We are at position (0, 0) WHEN random numbers are 0.1, 0.1, 0.8, 0.8 THEN x = -2.0 AND y == 2.0"
+        end block
+
+    block ! TODO
+        current % x = 0.0; current % y = 0.0
+        current = update_position_restricted(0.0, current, "N")
+        current = update_position_restricted(0.0, current, "E")
+        current = update_position_restricted(0.0, current, "S")
+        current = update_position_restricted(0.0, current, "W")
+        print *, &
+        "GIVEN ... WHEN ... THEN ..."
     end block
 end

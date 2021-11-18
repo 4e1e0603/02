@@ -4,6 +4,12 @@ source\factorial.f90
 
 source\fibonacci.f90
 
+source\00-compiling-and-linking\module_1.f90
+
+source\00-compiling-and-linking\module_2.f90
+
+source\00-compiling-and-linking\program.f90
+
 source\01-basics\01_hello_world.f90
 
 source\01-basics\02b_float_numbers.f90
@@ -32,11 +38,17 @@ source\02-types-and-operators\logical_operators.f90
 
 source\02-types-and-operators\relational_operators.f90
 
-source\03-branching-and-iterations\if-statement.f90
+source\03-control-flow\if-statement.f90
 
-source\03-branching-and-iterations\loop_do.f90
+source\03-control-flow\loop_do.f90
 
-source\03-branching-and-iterations\loop_do_while.f90
+source\03-control-flow\loop_do_while.f90
+
+source\03-control-flow\named_loop.f90
+
+source\03-control-flow\nested_loop_1.f90
+
+source\03-control-flow\nested_loop_2.f90
 
 source\04-arrays-and-pointers\arrays_01.f90
 

@@ -14,6 +14,8 @@ TODO
 
 import sys
 from pathlib import Path
+from typing import DefaultDict
+from collections import defaultdict
 
 
 Configuration = {
@@ -85,38 +87,68 @@ def remove_all_objects():
     for filename in Path(".").glob("**/*.o"):
         filename.unlink()
 
+#
+# Commands
+#
+
+def index():
+    codes = list_codes()
+    notes = list_notes()
+
+    # Show the code files.
+    print("--------\n## CODES\n--------")
+    for code in codes:
+        print(code.name, code.relative_to(code.parent.parent))
+
+    # Show the note files.
+    print("--------\n## NOTES\n--------")
+    for note in notes:
+        print(note.name, note.relative_to(note.parent.parent))
+
+    create_codes_and_notes_index()
+
+
+def clean():
+    remove_all_modules()
+    remove_all_objects()
+    remove_all_executables()
+    print("[---CLEANED---]")
+
+
+def build():
+    """
+    Compile all sources with `gfortran` and place the resulst in `build` folder.
+    """
+    import subprocess
+    files = [str(_file.absolute()) for _file in Path(".").glob("**/*.f90")]
+    # (f"{_file.stem}",
+    prog = files[0]
+
+    print(prog)
+    subprocess.run(["gfortran", prog], shell=True)
+
+    print("[---COMPILED---]")
+
 
 def main(argv=None) -> None:
 
     if len(argv) == 1:
         print("No action selected!")
-        print("Please write `index` or `clean`")
+        print("Please write `index`, `clean`, `compile`")
         return
 
-    # Make and index of notes and codes.
-    if argv[1] == "index":
-        codes = list_codes()
-        notes = list_notes()
+    command: str = argv[1]
 
-        # Show the code files.
-        print("--------\n## CODES\n--------")
-        for code in codes:
-            print(code.name, code.relative_to(code.parent.parent))
+    commands = defaultdict(None, {
+        "index": index,
+        "clean": clean,
+        "build": build
+    })
 
-        # Show the note files.
-        print("--------\n## NOTES\n--------")
-        for note in notes:
-            print(note.name, note.relative_to(note.parent.parent))
-
-        create_codes_and_notes_index()
-
-    # Clean a project directory.
-    elif argv[1] =="clean":
-        remove_all_modules()
-        remove_all_objects()
-        remove_all_executables()
-        print("[---CLEANED---]")
-
+    if execute := commands[command]:
+        execute()
+    else:
+        print(f"Unknown command {command}, please")
 
 if __name__ == "__main__":
     try:

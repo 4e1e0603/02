@@ -13,16 +13,17 @@ possibilities).
 
 ## Compile and run
 
-Compile and run main program:
+Compile and run *main* program:
 
-```
-gfortran .\random_walk_2d.f90 .\random_walk_2d_main.f90 -o .\random_walk_2d_main.exe
+```shell
+gfortran random_walk_2d.f90 random_walk_2d_main.f90 -o random_walk_2d_main.exe
 random_walk_2d_main.exe
 ```
 
-Compile and run test program:
-```
-gfortran .\random_walk_2d.f90 .\random_walk_2d_test.f90 -o .\random_walk_2d_test.exe
+Compile and run *test* program:
+
+```shell
+gfortran random_walk_2d.f90 random_walk_2d_test.f90 -o random_walk_2d_test.exe
 random_walk_2d_test.exe
 ```
 

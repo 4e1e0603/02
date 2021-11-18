@@ -14,7 +14,7 @@ module random_walk
         real :: y = 0.0;
     end type
 
-    public :: simple_random_walk_2D, update_position
+    public :: simple_random_walk_2D, update_position, update_position_restricted
 
     contains
 
@@ -62,6 +62,30 @@ module random_walk
 
     end function
 
+    function update_position_restricted(random, current, forbidden) result(updated)
+        !! work-in-progress
+        !!
+        !! @forbidden The forbidden direction on of 'N', 'E', 'S', 'W!.
+        real,           intent(in)  :: random
+        type(position), intent(in)  :: current
+        type(position)              :: updated
+        character(len=1)            :: forbidden
+
+        select case (forbidden)
+          case ('N')
+            print *, "North"
+          case ('E')
+            print *, "East"
+          case ('S')
+            print *, "South"
+          case ('W')
+            print *, "West"
+          case default
+            print *, "None"
+        end select
+
+    end function
+
     pure function simple_random_walk_2D(trials, steps, randoms) result(walks)
         !! Realize 2-dimensional simple random walk on ℤ for the given number of steps and trials.
         !!
@@ -81,12 +105,14 @@ module random_walk
 
         allocate(walks(1:trials, 1:steps, 1:3))         ! Allocate the output array.
 
-        do trial = 1, trials ! vs `do concurrent (trial = 1:trials)`
+        !                  DEFAULT (NONE) SHARED (...)
+        ! $OMP PARALLEL DO PRIVATE(current)
+        do trial = 1, trials ! vs `do concurrent (trial = 1:trials) private(current)`
             ! Reset the position before each run: is it save with `do concurrent`?
             current%x = 0.0
             current%y = 0.0
 
-            do step = 1, STEPS
+            do step = 1, steps
                 current = update_position(random=randoms(trial, step), current=current)
                 ! Save the position and distance.
                 walks(trial, step, 1) = current%x
@@ -94,6 +120,7 @@ module random_walk
                 walks(trial, step, 3) = sqrt( ((current%x) ** 2) + ((current%y) ** 2) )
             end do
         end do
+        ! $OMP END PARALLEL DO
     end function
 
 end module
