@@ -5,15 +5,14 @@
 !!
 !! See README.md for more information.
 !!
-program random_walk_simulation
+program random_walk_main
 
-    use random_walk, only: simple_random_walk_2D, position, update_position
+    ! use random_walk_1d, only: simulate_1d => simulate
+    use random_walk_2d, only: simulate_2d => simulate
 
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
 
     implicit none
-
-    type(position) :: current, updated
 
     integer :: step, trial
     integer :: steps, trials
@@ -22,19 +21,19 @@ program random_walk_simulation
     character(100) :: trials_arg
 
     real, dimension(:,:,:), allocatable :: walks
-    real, dimension(:,:), allocatable   :: randoms
+    real, dimension(:,:),   allocatable :: randoms
 
-    ! Make sure the right number of inputs have been provided.
+    ! Check that the right number of command-line arguments.
     if(command_argument_count() .ne. 2) then
-        write(*,*)'error, two command-line arguments required, stopping.'
+        write(*,*)'Error, two command-line arguments required, stopping.'
         stop
     end if
 
-    ! Read the command line arguments.
+    ! Read the command-line arguments.
     call get_command_argument(1, trials_arg)
     call get_command_argument(2, steps_arg)
 
-    ! Convert the arguments to integers.
+    ! Convert the command-line arguments to integers.
     read(steps_arg, *) steps
     read(trials_arg, *) trials
 
@@ -43,7 +42,7 @@ program random_walk_simulation
 
     call random_number(randoms)
 
-    walks = simple_random_walk_2D(trials=trials, steps=steps, randoms=randoms)
+    walks = simulate_2d(trials=trials, steps=steps, randoms=randoms)
 
     ! TODO Make a subroutine with text and binary output flag.
     ! TODO `open(newunit=id, file='file_name')`

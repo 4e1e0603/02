@@ -16,15 +16,15 @@ possibilities).
 Compile and run *main* program:
 
 ```shell
-gfortran random_walk_2d.f90 random_walk_2d_main.f90 -o random_walk_2d_main.exe
-random_walk_2d_main.exe
+gfortran random_walk.f90 random_walk_main.f90 -o random_walk_main.exe
+random_walk_main.exe
 ```
 
 Compile and run *test* program:
 
 ```shell
-gfortran random_walk_2d.f90 random_walk_2d_test.f90 -o random_walk_2d_test.exe
-random_walk_2d_test.exe
+gfortran random_walk.f90 random_walk_test.f90 -o random_walk_test.exe
+random_walk_test.exe
 ```
 
 ## Decisions

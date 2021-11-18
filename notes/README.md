@@ -628,3 +628,5 @@ __Debugging__
 
 __Best practices__
 - http://diracprogram.org/doc/release-17/programmers/good_fortran_90_practices.html
+
+- https://stevelionel.com/drfortran/allposts/
