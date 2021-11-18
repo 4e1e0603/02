@@ -1,0 +1,13 @@
+# gnuplot: vykreslení Mandelbrotovy množiny
+binary=1 # typ vstupniho souboru: 0 ascii, 1 binary
+set palette defined \
+  (0 'dark-blue',6 'dark-blue',30 'white',70 'gold',100 'brown',100.001 'black',101 'black')
+set cbrange [0:101]
+set term pngcairo size 1024,768
+set output 'mandelbrot.png'
+unset key
+if (!binary) \
+plot [-2.:.6][-1.2:1.2] 'mandelbrot.dat' using 1:2:3 with dots palette; \
+else \
+plot [-2.:.6][-1.2:1.2] 'mandelbrot.bin' binary format='%f%f%i' using 1:2:3 with dots palette
+set output
