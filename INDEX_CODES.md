@@ -1,9 +1,5 @@
 # Codes
 
-source\factorial.f90
-
-source\fibonacci.f90
-
 source\00-compiling-and-linking\module_1.f90
 
 source\00-compiling-and-linking\module_2.f90
@@ -68,10 +64,18 @@ source\04-arrays-and-pointers\array_performance_test.f90
 
 source\04-arrays-and-pointers\lecture-04.f90
 
-source\mandelbrot_fractal\mandelbrot.f90
+source\05-custom-procedures\subroutine.f90
 
-source\random_walk\random_walk_2d.f90
+source\99-miscellaneous\factorial.f90
 
-source\random_walk\random_walk_2d_main.f90
+source\99-miscellaneous\fibonacci.f90
 
-source\random_walk\random_walk_2d_test.f90
+source\99-miscellaneous\temperature_conversion.f90
+
+source\mandelbrot_set\mandelbrot.f90
+
+source\random_walk\random_walk.f90
+
+source\random_walk\random_walk_main.f90
+
+source\random_walk\random_walk_test.f90

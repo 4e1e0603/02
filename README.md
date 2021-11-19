@@ -1,5 +1,7 @@
 # Programming in Fortran
 
+<small>This file is machine-generated. Please, don't edit manually.</small>
+
 _“GOD IS REAL, unless declared INTEGER.”_
 
 - The notes from lectures are in `notes` directory.
@@ -60,7 +62,3 @@ We do not repeat the program name or procedure after the `end`  unless it is a v
         implicit none
         ! code !
     end module              ! no-function-name-here
-
-## TODO
-
-- Describe implied `do-loop` construct.

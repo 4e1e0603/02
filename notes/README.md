@@ -584,12 +584,13 @@ Přístup k kednomu prvku pole, přístup k více prvkům pole tzv. řez (*slice
 Alokovatelné pole jsou bezpěčné, protože zanikají na konci procedury.
 
 __Lesson 04__: Mandelbrot, práce s poli
+
 __Lesson_05__: Mandelbrot a paralelizace
 
 - @todo `Forall` Example
 - @todo `Async` Example https://stackoverflow.com/questions/27565264/using-asynchronous-attribute-in-derived-types
--
-- DON'T import the whole module such as `use module_name`: https://stackoverflow.com/questions/1240510/how-do-you-use-fortran-90-module-data
+- @todo Describe implied `do-loop` construct.
+- @tips Don't import the whole module such as `use module_name`: https://stackoverflow.com/questions/1240510/how-do-you-use-fortran-90-module-data
 
 ## Some useful tools and links
 
