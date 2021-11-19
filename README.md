@@ -1,12 +1,14 @@
 # Programming in Fortran
 
+_“GOD IS REAL, unless declared INTEGER.”_
+
 - The notes from lectures are in `notes` directory.
 - The codes based on lectures are in `source` directory.
 - The codes created on practicals are located in `practicals` directory.
 
 ## Build
 
-At this moment, you can manually compile each example as
+At this moment, compile each example as
 
     gfortran source/<file_name.f90> -o build/<file_name>
 

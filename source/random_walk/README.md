@@ -35,10 +35,10 @@ random_walk_test.exe
 
 ## Decisions
 
-I ALWAY USE KEYWORD ARGUMENTS http://www.mrao.cam.ac.uk/~pa/f90Notes/HTMLNotesnode151.html
+I ALWAYS USE KEYWORD ARGUMENTS http://www.mrao.cam.ac.uk/~pa/f90Notes/HTMLNotesnode151.html
 I SPENT HOURS OF DEBUGGING WHEN ACCIDENTALLY SWAPPED INTEGER ARGUMENTS!
 
-TODO I decided to pass a random numbers as values to functions.
+TODO I decided to pass random numbers as values to functions.
 The reason is that it is more testable the generatei inside functions.
 We can pregenreate random values
 at the beginning of the program and then pass them down to procedures/fucntions.
@@ -58,6 +58,7 @@ HOWTO Write an array to CSV like format?
 - Změnil jsem přiřazeni ve nested-loop na inline verzi.
 
 ## Reference
+
 - http://utf.mff.cuni.cz/vyuka/NTMF021/homeworks/HW_task_1.pdf
 - http://compphysics.github.io/ComputationalPhysics/doc/pub/rw/html/._rw-bs061.html
 - https://github.com/jakehanson/2D_RANDOM_WALK/blob/master/main.cpp

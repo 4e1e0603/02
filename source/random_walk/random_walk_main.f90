@@ -1,4 +1,4 @@
-! -*- coding: utf-8 -*-
+!! -*- coding: utf-8 -*-
 
 !! PROGRAM: Random walk simulation
 !! VERSION: 0.1.0
@@ -39,7 +39,7 @@ program random_walk_main
     call get_command_argument(2, steps_arg)
     call get_command_argument(3, trials_arg)
 
-    ! Convert the command-line arguments to integers.
+    ! Convert the command-line arguments.
     read(seed_arg, *) seed
     read(steps_arg, *) steps
     read(trials_arg, *) trials

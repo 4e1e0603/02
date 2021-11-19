@@ -1,4 +1,4 @@
-! -*- coding: utf-8 -*-
+!! -*- coding: utf-8 -*-
 
 !! Randowm walk (discrete time and space) simulation module.
 
