@@ -10,7 +10,7 @@ program random_walk_main
     use, intrinsic :: iso_fortran_env, only: sp=>real32, dp=>real64
 
     ! use random_walk_1d, only: simulate_1d => simulate
-    use random_walk_2d, only: simulate_2d => simulate
+    use random_walk, only: simulate
 
     implicit none
 
@@ -47,7 +47,7 @@ program random_walk_main
     ! @todo Set seed...
     call random_number(randoms)
 
-    outputs = simulate_2d(trials=trials, steps=steps, randoms=randoms)
+    outputs = simulate(trials=trials, steps=steps, randoms=randoms)
 
     ! TODO Make a subroutine with text and binary output flag.
     ! TODO `open(newunit=id, file='file_name')`

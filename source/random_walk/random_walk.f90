@@ -1,40 +1,21 @@
 ! -*- coding: utf-8 -*-
 
-!! Randowm walk 1D (discrete time and space) simulation module.
-!! Randowm walk 1D (discrete time and space) simulation module.
+!! Randowm walk (discrete time and space) simulation module.
 
-module random_walk_1d
-    implicit none
+module random_walk
 
-    private
-
-    ! type, public :: state
-    !     real :: t = 0.0;
-    !     real :: x = 0.0;
-    ! end type
-
-    ! public :: simulate
-    ! pure function simulate() result(walks)
-    !   real, dimension(:,:,:), allocatable :: walks
-    !   allocate(walks(1:trials, 1:steps, 1:3))     ! Allocate the output array.
-    ! end function
-
-end module
-
-
-module random_walk_2d
     implicit none
 
     private
 
     !! The state on 2-dimensional lattice.
-    type, public :: state ! state
-        real :: t = 0.0
-        real :: x = 0.0;
-        real :: y = 0.0;
+    type, public :: state
+        real :: t = 0.0; ! time
+        real :: x = 0.0; ! space
+        real :: y = 0.0; ! space
     end type
 
-    public :: simulate, update
+    public :: update, simulate
 
     contains
 
@@ -78,7 +59,6 @@ module random_walk_2d
         updated % x = current % x
         updated % y = current % y
 
-        ! I decided not to use nested `if`s.
         if (random >= 0.0 .and. random < 0.25) then
             updated % x = (current % x) - 1
         end if
@@ -97,7 +77,13 @@ module random_walk_2d
 
     end function
 
-    pure function simulate(trials, steps, randoms) result(walks)
+    pure function metrics() result(outputs)
+        real :: outputs(1)
+        outputs = 0.0
+    end function
+
+    pure function simulate(trials, steps, randoms) result(outputs)
+        ! @todo dimension = array, step_sizes = array
         !! Realize 2-dimensional simple random walk on ℤ for the given number of steps and trials.
         !!
         !! @param steps   The number of random walk steps.
@@ -108,28 +94,24 @@ module random_walk_2d
         implicit none
 
         integer, intent(in) :: steps, trials
-        real, dimension(:,:,:), allocatable :: walks
+        real, intent(in) :: randoms(trials, steps)
+        real, dimension(:,:,:), allocatable :: outputs
+        type(state) :: current
+        integer :: trial, step
 
-        type(state)      :: current                 ! The current state (0, 0).
-        real, intent(in) :: randoms(trials, steps)  ! The random numbers.
-        integer          :: trial, step             ! The current trial and step.
-
-        allocate(walks(1:trials, 1:steps, 1:3))     ! Allocate the output array.
+        allocate(outputs(1:trials, 1:steps, 1:3))
 
         ! $OMP PARALLEL DO PRIVATE(current)
-        ! or `do concurrent (trial = 1:trials) private(current)`
         do trial = 1, trials
-            ! Reset the state before each run!
-            current%x = 0.0
-            current%y = 0.0
+
+            current % x = 0.0
+            current % y = 0.0
 
             do step = 1, steps
                 current = update(random=randoms(trial, step), current=current)
-                ! Save the state and distance.
-                walks(trial, step, 1) = current%x
-                walks(trial, step, 2) = current%y
-                walks(trial, step, 3) = sqrt( ((current%x) ** 2) + ((current%y) ** 2) )
+                outputs(trial, step, :) = (/ current % x, current % y, sqrt((current % x) ** 2 + (current % y) ** 2) /)
             end do
+
         end do
         ! $OMP END PARALLEL DO
     end function

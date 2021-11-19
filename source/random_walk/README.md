@@ -1,15 +1,19 @@
 # Random walk 2D
 
-To simulate and analyze various types of random walks on the lattice in the plane (all steps are
+Simulation and analysis of various types of random walks on the lattice in the plane (all steps are
 of the same length d = 1, but the direction is randomly chosen from a certain set of prescribed
 possibilities).
 
-- [x] Simple random walk on 2-dimensional lattice
-   steps in any of the four directions  with the same probability.
+1. [ ] Random walk 1D
 
-- [ ] Restricted random walk on 2-dimensional lattice
-  - without immediate returns
-     steps in three possible directions with the same probability, the first step is in any direction
+1. [x] Random walk 2D on the square lattice where you can step in any of the four directions with the same probability.
+
+2. [ ] Random walk 2D on the square lattice without immediate return where you can step in three possible directions with the same probability,
+      the first step is in any direction.
+
+3. [ ] Random walk on the square lattice without crossing (self-avoiding random walk).
+
+(The 1. is called a *simple random walk*, 2. and 3. are called *restricted random walks*.)
 
 ## Compile and run
 
@@ -17,6 +21,7 @@ Compile and run *main* program:
 
 ```shell
 gfortran random_walk.f90 random_walk_main.f90 -o random_walk_main.exe
+
 random_walk_main.exe
 ```
 
@@ -24,6 +29,7 @@ Compile and run *test* program:
 
 ```shell
 gfortran random_walk.f90 random_walk_test.f90 -o random_walk_test.exe
+
 random_walk_test.exe
 ```
 
@@ -46,6 +52,10 @@ TODO function persistent_random_walk_2D(steps, trials) result() ... end function
 TODO function restricted_random_walk_2D(steps, trials) result() ... end function
 TODO Simple command line interface.
 HOWTO Write an array to CSV like format?
+
+## Changes
+
+- Změnil jsem přiřazeni ve nested-loop na inline verzi.
 
 ## Reference
 - http://utf.mff.cuni.cz/vyuka/NTMF021/homeworks/HW_task_1.pdf
