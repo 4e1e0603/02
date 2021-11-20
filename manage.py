@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 """
@@ -179,6 +180,11 @@ def remove_all_executables(path: Path):
 #                             Commands                                #
 # ################################################################### #
 
+# @todo
+# Loging to server via SSH
+# Copy all the examples to the given path somewhere in home directory
+# Then we can compile the examples with Intel and NVIDIA compilers
+# Then run them and catch the outputs of programs or benchmarks.
 
 def index() -> None:
     codes = list_codes(CODE_PATH)
