@@ -14,16 +14,24 @@ TODO
 
 import sys
 from pathlib import Path
-from typing import DefaultDict
+from typing import DefaultDict, Union
 from collections import defaultdict
 
 
 README = """\
-# Programming in Fortran
+# Programming in modern Fortran
+
+```
+  ______
+ (_) |
+    _|_  __   ,_  _|_  ,_    __,   _  _
+   / | |/  \_/  |  |  /  |  /  |  / |/ |
+  (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/
+
+ “GOD IS REAL, unless declared INTEGER.”
+```
 
 <small>This file is machine-generated. Please, don't edit manually.</small>
-
-_“GOD IS REAL, unless declared INTEGER.”_
 
 - The notes from lectures are in `notes` directory.
 - The codes based on lectures are in `source` directory.
@@ -91,22 +99,29 @@ Configuration = {
     "code_path": Path("./source"),
 }
 
-NOTE_PATH = Path("./notes")
-CODE_PATH = Path("./source")
+NOTE_PATH = Path("./source/notes")
+CODE_PATH = Path("./source/codes")
 
 
-def list_codes() -> tuple[Path]:
+def list_files(extension: str, path: Path = ".") -> tuple[Path]:
     """
-    List the code files stored in the `CODE_PATH` directory.
+    List the note files stored in the given path.
     """
-    return tuple([path for path in CODE_PATH.glob("**/*.f90")])
+    return tuple([_path for _path in path.glob(f"**/*.{extension}")])
 
 
-def list_notes() -> tuple[Path]:
+def list_codes(path: Path) -> tuple[Path]:
     """
-    List the note files stored in the `NOTE_PATH` directory.
+    List the code files stored in the given path.
     """
-    return tuple([path for path in NOTE_PATH.glob("**/*.md")])
+    return list_files("f90", path)
+
+
+def list_notes(path: Path) -> tuple[Path]:
+    """
+    List the note files stored in the given path.
+    """
+    return list_files("md", path)
 
 
 def read_note_content(note: Path) -> str:
@@ -117,61 +132,57 @@ def check_note_content(note: str) -> bool:
     ...
 
 
-def create_codes_and_notes_index():
-
-    codes: str = "\n\n".join([str(i) for i in list_codes()])
-    codes_file = "INDEX_CODES.md"
-    with open(f"{codes_file}", mode="w+", encoding="utf-8") as f:
+def create_codes_and_notes_index(path: str = "."):
+    """
+    """
+    path = Path(path)
+    codes: str = "\n".join([f"- {i}" for i in list_codes(CODE_PATH)])
+    codes_file = "INDEX.md"
+    with open(path / codes_file, mode="w+", encoding="utf-8") as f:
         f.write(f"# Codes\n\n")
         f.write(codes)
 
-    notes: str = "\n\n".join([str(i) for i in list_notes()])
-    notes_file = "INDEX_NOTES.md"
-    with open(f"{notes_file}", mode="w+", encoding="utf-8") as f:
-        f.write(f"# NOTES\n\n")
-        f.write(notes)
+    # notes: str = "\n".join([str(i) for i in list_notes()])
+    # notes_file = "INDEX_NOTES.md"
+    # with open(f"{notes_file}", mode="w+", encoding="utf-8") as f:
+    #     f.write(f"# NOTES\n\n")
+    #     f.write(notes)
 
 
-def remove_all_executables():
+def remove_all_files(extension: str, path: Path = "."):
     """
-    Removes all Windows executable (`.exe`) files.
+    Removes all files with the given path with provided extension (the search is recursive).
     """
-    for filename in Path(".").glob("**/*.exe"):
+    if not len(extension):
+        raise ValueError("The empty string is a not a valid file extension.")
+
+    for filename in Path(".").glob(f"**/*.{extension}"):
         filename.unlink()
 
 
-def remove_all_modules():
-    """
-    Removes all Fortran module (`.mod`) files.
-    """
-    for filename in Path(".").glob("**/*.mod"):
-        filename.unlink()
+def remove_all_modules(path: Path):
+    """Remove all module (`.mod`) files."""
+    remove_all_files("mod", path)
 
 
-def remove_all_objects():
-    """
-    Removes all object (`.o`) files.
-    """
-    for filename in Path(".").glob("**/*.o"):
-        filename.unlink()
+def remove_all_objects(path: Path):
+    """Remove all object (`.o`) files."""
+    remove_all_files("o", path)
 
-#
-# Commands
-#
 
-def index():
-    codes = list_codes()
-    notes = list_notes()
+def remove_all_executables(path: Path):
+    """Remove all executable (`.exe`) files."""
+    remove_all_files("exe", path)
 
-    # Show the code files.
-    print("--------\n## CODES\n--------")
-    for code in codes:
-        print(code.name, code.relative_to(code.parent.parent))
 
-    # Show the note files.
-    print("--------\n## NOTES\n--------")
-    for note in notes:
-        print(note.name, note.relative_to(note.parent.parent))
+# ################################################################### #
+#                             Commands                                #
+# ################################################################### #
+
+
+def index() -> None:
+    codes = list_codes(CODE_PATH)
+    notes = list_notes(NOTE_PATH)
 
     create_codes_and_notes_index()
 
@@ -180,10 +191,10 @@ def index():
         _file.write(README)
 
 
-def clean():
-    remove_all_modules()
-    remove_all_objects()
-    remove_all_executables()
+def clean() -> None :
+    remove_all_modules(CODE_PATH)
+    remove_all_objects(CODE_PATH)
+    remove_all_executables(CODE_PATH)
     print("[---CLEANED---]")
 
 
@@ -192,7 +203,7 @@ def build():
     Compile all sources with `gfortran` and place the resulst in `build` folder.
     """
     import subprocess
-    files = [str(_file.absolute()) for _file in Path(".").glob("**/*.f90")]
+    files = [str(_file.absolute()) for _file in Path("source/codes").glob("**/*.f90")]
     # (f"{_file.stem}",
     prog = files[0]
 
@@ -222,10 +233,11 @@ def main(argv=None) -> None:
     else:
         print(f"Unknown command {command}, please")
 
+
 if __name__ == "__main__":
     try:
         main(sys.argv)
         sys.exit(0) # SUCCESS
     except Exception as exc:
-        print(exc)
+        print(exc.with_traceback())
         sys.exit(1) # FAILURE

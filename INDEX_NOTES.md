@@ -1,3 +1,0 @@
-# NOTES
-
-notes\README.md

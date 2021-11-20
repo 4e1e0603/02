@@ -1,8 +1,16 @@
-# Programming in Fortran
+# Programming in modern Fortran
+
+```
+  ______
+ (_) |
+    _|_  __   ,_  _|_  ,_    __,   _  _
+   / | |/  \_/  |  |  /  |  /  |  / |/ |
+  (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/
+
+ “GOD IS REAL, unless declared INTEGER.”
+```
 
 <small>This file is machine-generated. Please, don't edit manually.</small>
-
-_“GOD IS REAL, unless declared INTEGER.”_
 
 - The notes from lectures are in `notes` directory.
 - The codes based on lectures are in `source` directory.
