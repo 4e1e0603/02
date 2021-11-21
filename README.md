@@ -1,13 +1,13 @@
 # Programming in modern Fortran
 
 ```
-  ______
- (_) |
-    _|_  __   ,_  _|_  ,_    __,   _  _
-   / | |/  \_/  |  |  /  |  /  |  / |/ |
-  (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/
+                                          ______
+                                         (_) |
+                                            _|_  __   ,_  _|_  ,_    __,   _  _
+                                           / | |/  \_/  |  |  /  |  /  |  / |/ |
+                                          (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/
 
- “GOD IS REAL, unless declared INTEGER.”
+                                           “GOD IS REAL, unless declared INTEGER.”
 ```
 
 <small>This file is machine-generated. Please, don't edit manually.</small>
