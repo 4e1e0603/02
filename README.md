@@ -1,14 +1,11 @@
+```
+  ______
+ (_) |
+    _|_  __   ,_  _|_  ,_    __,   _  _
+   / | |/  \_/  |  |  /  |  /  |  / |/ |
+  (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/                          
+```
 # Programming in modern Fortran
-
-```
-                              ______
-                             (_) |
-                                _|_  __   ,_  _|_  ,_    __,   _  _
-                               / | |/  \_/  |  |  /  |  /  |  / |/ |
-                              (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/
-
-                               “GOD IS REAL, unless declared INTEGER.”
-```
 
 <small>This file is machine-generated. Please, don't edit manually.</small>
 
@@ -70,3 +67,7 @@ We do not repeat the program name or procedure after the `end`  unless it is a v
         implicit none
         ! code !
     end module              ! no-function-name-here
+    
+    
+_“GOD IS REAL, unless declared INTEGER.”_
+
