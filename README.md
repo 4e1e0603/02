@@ -3,16 +3,15 @@
  (_) |
     _|_  __   ,_  _|_  ,_    __,   _  _
    / | |/  \_/  |  |  /  |  /  |  / |/ |
-  (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/                          
+  (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/
 ```
 
-# Programming in modern Fortran
+# Programming in *modern* Fortran
 
 <small>This file is machine-generated. Please, don't edit manually.</small>
 
-- The notes from lectures are in `notes` directory.
-- The codes based on lectures are in `source` directory.
-- The codes created on practicals are located in `practicals` directory.
+- The notes from lectures are in `NOTES.md`.
+- The codes based on lectures are in `source/`.
 
 ## Build
 
@@ -30,18 +29,6 @@ To compile program and link object as an executable use
 
     gfortran path/to/program path/to/object -o program_name
 
-### What to do with `Error in compiling: Can't open module file`?
-
-You have to compile your module first before an executable as an objects or
-you can compile them together but there have to be listed first on command line.
-
-    gfortran path/to/module path/to/program  -o program_name
-             ^^^^^^^^^^^^^^ See that modules are compile first!
-
-### What are these `.mod` files?
-
-- https://fortranwiki.org/fortran/show/Compiler+.MOD+files
-
 ## Manage
 
 We use Python 3.5+.
@@ -50,25 +37,5 @@ We use Python 3.5+.
     python manage.py clean   # works
     python manage.py release # todo
 
-## Coding style
 
-We do not repeat the program name or procedure after the `end`  unless it is a very long script.
-
-    program program_name
-        implicit none       ! always-use-implicit
-        ! code !
-    end program             ! no-program-name-here
-
-    function function_name
-        implicit none
-        ! code !
-    end function            ! no-function-name-here
-
-    function module_name
-        implicit none
-        ! code !
-    end module              ! no-module-name-here
-    
-    
 _“GOD IS REAL, unless declared INTEGER.”_
-
