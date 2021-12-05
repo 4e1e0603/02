@@ -8,6 +8,9 @@
 
 # Programming in *modern* Fortran
 
+![Fortran](https://img.shields.io/badge/Language-Fortran-darkviolet.svg)
+
+
 <small>This file is machine-generated. Please, don't edit manually.</small>
 
 - The notes from lectures are in `NOTES.md`.
