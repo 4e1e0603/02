@@ -54,18 +54,6 @@ To compile program and link object as an executable use
 
     gfortran path/to/program path/to/object -o program_name
 
-### What to do with `Error in compiling: Can't open module file`?
-
-You have to compile your module first before an executable as an objects or
-you can compile them together but there have to be listed first on command line.
-
-    gfortran path/to/module path/to/program  -o program_name
-             ^^^^^^^^^^^^^^ See that modules are compile first!
-
-### What are these `.mod` files?
-
-- https://fortranwiki.org/fortran/show/Compiler+.MOD+files
-
 ## Manage
 
 We use Python 3.5+.
