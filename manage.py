@@ -70,38 +70,19 @@ you can compile them together but there have to be listed first on command line.
 
 We use Python 3.5+.
 
-    python manage.py index   # work-in-progress
+    python manage.py index   # works
     python manage.py clean   # works
     python manage.py release # todo
-
-## Coding style
-
-We do not repeat the program name or procedure after the `end`  unless it is a very long script.
-
-    program program_name
-        implicit none       ! always-use-implicit
-        ! code !
-    end program             ! no-program-name-here
-
-    function function_name
-        implicit none
-        ! code !
-    end function            ! no-function-name-here
-
-    function module_name
-        implicit none
-        ! code !
-    end module              ! no-function-name-here
 """
 
 
 Configuration = {
     "note_path": Path("./notes"),
-    "code_path": Path("./source"),
+    "code_path": Path("./codes"),
 }
 
-NOTE_PATH = Path("./source/notes")
-CODE_PATH = Path("./source/codes")
+NOTE_PATH = Path("./notes")
+CODE_PATH = Path("./codes")
 
 
 def list_files(extension: str, path: Path = ".") -> tuple[Path]:
