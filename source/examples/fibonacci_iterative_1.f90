@@ -11,11 +11,11 @@ program fibonacci_recursive
 
   contains
 
-      ! Computes a Fibonacci's series.
-      !
+      ! Computes a Fibonacci's sequence (series).
+      ! (iterative version)
       ! :param(in) integer n
       ! :return    integer fibonacci(1:n)
-      recursive function fibonacci(n)
+      function fibonacci(n)
 
           integer, intent(in) :: n
           integer :: fibonacci(1:n), i

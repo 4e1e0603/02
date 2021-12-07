@@ -11,15 +11,15 @@ program fibonacci_recursive
 
 contains
 
-    ! Computes a Fibonacci's series.
-    !
+    ! Computes Fibonacci's sequence (series).
+    ! (iterative version)
     ! Does not check if f1 and f2 are right numbers!
     !
     ! :param(in) integer f1
     ! :param(in) integer f2
     ! :param(in) integer n
     ! :return    integer fibonacci(1:n)
-    recursive function fibonacci(f1, f2, n)
+    function fibonacci(f1, f2, n)
 
         integer, intent(in) :: f1, f2, n
         integer :: fibonacci(1:n)
