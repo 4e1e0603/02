@@ -10,9 +10,8 @@ program elemental_functions
 
     print *, square([ [1., 2.], [3., 4.] ])
 
-    print *, fibonacci(0), fibonacci(1), fibonacci(2), fibonacci(3), fibonacci(4)
-
-    ! print *, fibonacci(0, 1, 2, 3, 4)
+    print *, "Fibonacci single values"    , fibonacci (0), fibonacci(1), fibonacci(2), fibonacci(3), fibonacci(4)
+    print *, "Fibonacci multiple values:" , fibonacci([0,            1,            2,            3,            4])
 
 contains
 
@@ -21,16 +20,30 @@ contains
         square = x ** 2
     end
 
-    ! Note: proor to Fortran 2018 the elemental function cpild not be
-    ! both elemental and recursive
+    ! Note: proor to Fortran 2018 the elemental function could not be
+    ! both elemental and recursive.
+    ! Are elemental procedures pure by default?
 
-    pure recursive integer function fibonacci(n) result(output)
-        integer, intent (in) :: n
-        if ( (n == 0) .or. (n == 1)) then
-            output = n
-        else
-            reuslt = fibonacci(n - 1) + fibonacci(n - 2)
-        end if
-    end
+    ! Elemental version of Fibonacci's sequence.
+    !
+    ! Calling `fibonacci(n)` calculates a single `n`-th Fibonacci's number.
+    ! Calling `fibonacci([1...n])` calculates a Fibonacci's series up to `n`.
+    !
+    pure elemental integer function fibonacci(n) result(b)
+        integer, intent(in) :: n
+        integer :: i, a
 
-end
+        a = 1; b = 1
+
+        select case (n)
+            case (0:2)
+                b = n
+            case default
+                do i = 1, n
+                    a = b
+                    b = a + b
+                end do
+        end select
+    end function
+
+end program
