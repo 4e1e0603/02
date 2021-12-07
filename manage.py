@@ -20,7 +20,7 @@ from collections import defaultdict
 
 
 README = """\
-# Programming in modern Fortran
+# Programming in *modern* Fortran
 
 ```
   ______
@@ -31,6 +31,9 @@ README = """\
 
  “GOD IS REAL, unless declared INTEGER.”
 ```
+
+![Fortran](https://img.shields.io/badge/Language-Fortran-darkviolet.svg)
+
 
 <small>This file is machine-generated. Please, don't edit manually.</small>
 
