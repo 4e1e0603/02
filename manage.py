@@ -22,6 +22,8 @@ from collections import defaultdict
 README = """\
 # Programming in *modern* Fortran
 
+![Fortran](https://img.shields.io/badge/Language-Fortran-darkviolet.svg)
+
 ```
   ______
  (_) |
@@ -32,14 +34,11 @@ README = """\
  “GOD IS REAL, unless declared INTEGER.”
 ```
 
-![Fortran](https://img.shields.io/badge/Language-Fortran-darkviolet.svg)
-
-
 <small>This file is machine-generated. Please, don't edit manually.</small>
 
 - The notes from lectures are in `notes` directory.
-- The codes based on lectures are in `source` directory.
-- The codes created on practicals are located in `practicals` directory.
+- The codes based on lectures are in `codes` directory.
+- The codes created on practicals are located in `codes/practicals` directory.
 
 ## Build
 
