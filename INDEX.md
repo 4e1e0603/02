@@ -39,6 +39,8 @@
 - codes\04-arrays-and-pointers\array_performance_test.f90
 - codes\04-arrays-and-pointers\lecture-04.f90
 - codes\05-custom-procedures\subroutine.f90
+- codes\97-custom-types-and-classes\derived_type1.f90
+- codes\97-custom-types-and-classes\derived_type_with_costructor.f90
 - codes\99-miscellaneous\factorial.f90
 - codes\99-miscellaneous\fibonacci.f90
 - codes\99-miscellaneous\temperature_conversion.f90

@@ -44,6 +44,9 @@ category: programming
   - `do while(condition);...; enddo`
   - do;...;enddo
   - `forall ();...; end forall`
+- Generické typy, funkce
+- Preprocessor
+- Metaprogramování
 
 - Funkce vlastní a volání podprogramu `call`
 - Testování

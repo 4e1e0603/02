@@ -41,3 +41,8 @@ We use Python 3.5+.
     python manage.py index   # works
     python manage.py clean   # works
     python manage.py release # todo
+
+## Resources
+
+- https://fortran-lang.org/
+- https://fortran-lang.discourse.group/
