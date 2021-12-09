@@ -68,6 +68,24 @@ We use Python 3.5+.
 
 - https://fortran-lang.org/
 - https://fortran-lang.discourse.group/
+
+## Zen of Fortran
+
+> Fast is better than slow
+> Slow is better than unmaintainable
+> Array-oriented is better than object-oriented
+> Make everything as simple as possible – but no simpler (Einstein)
+> Simplicity is robustness.
+> Make it look like the math.
+> All inputs and outputs explicit.
+> All inputs and outputs carefully named and clearly defined – the
+> closer to the point of declaration the better.
+> Vector is better than loop
+> Matrix is better than vector
+> Unless it’s complicated
+> Strided is better than scattered
+> Contiguous is better than strided
+> Broadcasting is a great idea – use where possible
 """
 
 
