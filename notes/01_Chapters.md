@@ -18,7 +18,6 @@ category: programming
   - `function name(arguments)`
   - `use`
   - `contains`
-
 - proměnné a základní datové typy
   - číselné: `complex(kind), integer(kind), real(kind)`
   - znakové: `character(length)`
@@ -26,25 +25,20 @@ category: programming
   - konverze: `implicit none`
 - pole
     - 1D, 2D, 3D atd.
-
 - Výrazy a operátory
   - aritmetické
   - relační
   - logické (boolovské)
   - znakové
   - vlastní (definované)
-  -
-
 - vstup a výstup
   - čtení a zápis ze/z konzole (standardní vstup)
     - `print`
   - čtení a zápis ze/z souboru
-
 - Větvění (conditions)
   - `if (condition) then; ...; elseif (condition) then; ...; else; ...; endif`
   - `select case`
   - `where`
-
 - Opakování (cycles/loops)
   - `do i=min, i=max, stride;...; enddo`
   - `do while(condition);...; enddo`
@@ -57,23 +51,7 @@ category: programming
 
 # Fortran
 
-Poznámky k předmětu _Programování ve Fortranu_. Tyto poznámky původně vznikaly v průběhu přednášky pod laskavým vedením [Ladislava Hanyka](http://geo.mff.cuni.cz/users/hanyk/) z katedry geofyziky na matematicko-fyzikální fakultě UK.
-
-## Úvod a prostředí pro vývoj
-
-Fortran je kompilovaný a staticky typovaný jazyk určený především pro numerické úlohy.
-Je nutné mít na paměti, že jeho historie sahá velmi daleko a můžeme narazit na mnoho
-programů, které jsou psané pro veri fortranu i desítky let starou typicky Fortran 77.
-Jako každý jazyk se však i Fortran mění a jeho nejdnovější specifikace je 2018. Za
-moderní verzi fortranu lze považovat verzi 90 či spíše 95 a výše. V této verzi uméí
-fortran spoustu věcí, které by člověk čekal od moderního programovacího jazyka a
-troufám si říci, že v čitelnosti si kolikrát nezadá any s Pythonem. většina numerických
-úloh, které musí být vysoce výkonné tj, vektorizované anebo paralelizované buď používá
-C++ nebo Fortran. Proto jazyk Frotran má stále a bude mít své místo pro specifické úlohy,
-které potřebují být rychlé a kde se počítá každá milisekunda výpočtu a megabyte paměti.
-Nenechte se odradit, moderní fortran je opravdu přívětivý jazyk a oproti C++, které potřebuje
-šablony a metaprogramování pro spoustu pokročilých úloh (což sebou nese velkou kongnitivní zátěž)
-zůstává frotran na pohled velmi čitelný a jednodychý. Osttaně jak se říka "right tool for right job".
+Poznámky k předmětu _Programování ve Fortranu_. Tyto poznámky původně vznikají v průběhu přednášek pod laskavým vedením [Ladislava Hanyka](http://geo.mff.cuni.cz/users/hanyk/) z katedry geofyziky na matematicko-fyzikální fakultě Univerzity Karlovy.
 
 ### Proč Fortran?
 
@@ -81,12 +59,22 @@ Fortran vždy byl a zůstáva jazykem specializovaným na matematické výpočty
 
 Kromě jiného se vyplatí znát Fortran jistě z historických důvodů. Za prvé mnoho knihoven pro numerickou lineární algebru je stále napsáno ve Fortran 77 a vyšší programovací jazyky se na ně často odvolávají a volají jejich rutiny. Za druhé jde o jazyk velmi jednoduchý a nezáludný a programy v něm napsané josu často psané v jednom stylu. porovnáme li to znovu např. s C++, co _code base_, to jiný styl, protože C++ je multiparadigmatický jazyk.
 
+## Úvod a prostředí pro vývoj
+
+Fortran je kompilovaný a staticky typovaný jazyk určený především pro numerické úlohy. Je nutné mít na paměti, že jeho historie sahá velmi daleko a můžeme narazit na mnoho programů, které jsou psané pro veri fortranu i desítky let starou typicky Fortran 77.
+Jako každý jazyk se však i Fortran mění a jeho nejdnovější specifikace je 2018. Za moderní verzi fortranu lze považovat verzi 90 či spíše 95 a výše. V této verzi umí Fortran spoustu věcí, které by člověk čekal od moderního programovacího jazyka a troufám si říci, že v čitelnosti si kolikrát nezadá any s Pythonem. většina numerických úloh, které musí být vysoce výkonné tj, vektorizované anebo paralelizované buď používá
+C++ nebo Fortran. Proto jazyk Frotran má stále a bude mít své místo pro specifické úlohy, které potřebují být rychlé a kde se počítá každá milisekunda výpočtu a megabyte paměti. Nenechte se odradit, moderní fortran je opravdu přívětivý jazyk a oproti C++, které potřebuje
+šablony a metaprogramování pro spoustu pokročilých úloh (což sebou nese velkou kongnitivní zátěž) zůstává frotran na pohled velmi čitelný a jednoduchý. Osttaně jak se říka "right tool for right job".
+
 ### Standardy a kompilátory Fortranu
 
-- Fortran 1977 (Fortran 77)
-- Fortran 1990 (Fortran 90)
-- Fortran 1995 (Fortran 95)
-- Fortran 2003 (Fortran 03)
+- 1957 vznik
+- 1966 standard (Fortran 66)
+- 1977 standard (Fortran 77)
+- 1990 standard (Fortran 90)
+- 1995 standard (Fortran 95)
+- 2003 standard (Fortran 03)
+- 2018 standard (Fortran 18)
 
 Fortran je kompilovaný jazyk. Proto před spuštěním jakohokoliv programu, musíme zdrojový kód zkompilovat. Jde také o staticky typovaný jazyk, tzn. že kontrola typů se provádí při kompilaci programu.
 
@@ -218,6 +206,8 @@ Platnost je pro programovou jednotku, modul, program
 ...
 
 # Operátory
+
+Operáotry pro základní datové typy. Později si ukážeme jak přetižit/definovat operátory pro odvozené datové typy.
 
 ## Logické
 
@@ -405,8 +395,6 @@ Mluvíme pak o __ukazatelových polích__
 
 Deklarace 1D pole
 
-
-
 Deklarace 2D pole
 
 Deklarace 3D pole
@@ -509,6 +497,14 @@ Jaké hodnoty mají proměnné, které nebyli inicalizovány?
     ! Together with -ffpe-trap=denormal this can be very helpful, to get uninitialized reals.
 
 
+- Deklarace pole pomocí [*]?
+
+https://livebook.manning.com/book/modern-fortran/chapter-1/32
+```
+integer :: a[*]
+```
+
+
 ---
 přebrat
 ---
@@ -583,42 +579,6 @@ you can compile them together but there have to be listed first on command line.
 - https://fortranwiki.org/fortran/show/Compiler+.MOD+files
 
 
-## Lectures
-
-__Lesson XX__ Tvoříme konzolový program
-
-- Command Line Interface (CLI) a argumenty příkazového řádku
-- Proměnné prostředí
-
-__Lesson XX__ Vlastní datové typy, struktury
-
-__Lesson XX__ Objekty a objektově orientované programování (verze 2003+)
-
-
-__Lekce_XX__: Numerical libraries (IMKL, LAPACK, BLAS)
-
-__Lesson 01__: Fundamentals
-
-Probrali jsem základní konstrukce Fortranu. Vysvětlii jsem jaký je rozdíl mezi souborem s příponou `.f` a `.f90`.
-Ukázali jsem si strukturu souboru: program, proměnná a konstanta, funkce, subrutina, modul. Probrali jsem zákaldní číselné a datové typy. Přeložili jsme pár ukázkových programů *hello world* v GNU Fortran (`gfortran`).
-
-__Lesson 02__: Literals, Types, Numbers, and Floating-point arithmetic.
-
-číselné a řetězové literály a konverze (přetypování), přesnost při práci s desetinnými čísly (*floatiing point*)
-Čiselné a řetezcové konverze, načítaní a zápis do konzole.
-
-__Lesson 03__: Pointers and arrays
-
-Probrali jsme práci s ukazateli: deklarace ukazatale, alokace ukazatele, dealokace ukazatele, ukazatel na skalár, ukazatel na pole.
-Ukázali jsem si jaké problémy mohou nastat při práci s ukazateli.
-
-Přístup k kednomu prvku pole, přístup k více prvkům pole tzv. řez (*slice*).
-
-Alokovatelné pole jsou bezpěčné, protože zanikají na konci procedury.
-
-__Lesson 04__: Mandelbrot, práce s poli
-
-__Lesson_05__: Mandelbrot a paralelizace
 
 - @todo `Forall` Example
 - @todo `Async` Example https://stackoverflow.com/questions/27565264/using-asynchronous-attribute-in-derived-types
