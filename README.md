@@ -1,10 +1,10 @@
-# 𝕻𝖗𝖔𝖌𝖗𝖆𝖒𝖒𝖎𝖓𝖌 𝖎𝖓 𝖒𝖔𝖉𝖊𝖗𝖓 𝕱𝖔𝖗𝖙𝖗𝖆𝖓
-
-**Programming in Python from zero to hero.**
-
-The introductory course, examples, and exercises in Fortran programming language. Originally written for personal needs but may be useful for other people.
+# 𝕻𝖗𝖔𝖌𝖗𝖆𝖒𝖒𝖎𝖓𝖌 𝖎𝖓 𝕱𝖔𝖗𝖙𝖗𝖆𝖓
 
 ![Fortran](https://img.shields.io/badge/Language-Fortran-darkviolet.svg)
+
+**Programming in Fortran from zero to hero.**
+
+The introductory course, examples, and exercises in Fortran programming language. Originally written for personal needs but may be useful for other people.
 
 “GOD IS REAL, unless declared INTEGER.”
 
