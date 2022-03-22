@@ -1,16 +1,8 @@
-# Programming in *modern* Fortran
+# 𝕻𝖗𝖔𝖌𝖗𝖆𝖒𝖒𝖎𝖓𝖌 𝖎𝖓 𝖒𝖔𝖉𝖊𝖗𝖓 𝕱𝖔𝖗𝖙𝖗𝖆𝖓
 
 ![Fortran](https://img.shields.io/badge/Language-Fortran-darkviolet.svg)
 
-```
-  ______
- (_) |
-    _|_  __   ,_  _|_  ,_    __,   _  _
-   / | |/  \_/  |  |  /  |  /  |  / |/ |
-  (_/   \__/    |_/|_/   |_/\_/|_/  |  |_/
-
- “GOD IS REAL, unless declared INTEGER.”
-```
+“GOD IS REAL, unless declared INTEGER.”
 
 <small>This file is machine-generated. Please, don't edit manually.</small>
 
