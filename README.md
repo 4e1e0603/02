@@ -14,6 +14,17 @@ The introductory course, examples, and exercises in Fortran programming language
 - The codes based on lectures are in `codes` directory.
 - The codes created on practicals are located in `codes/practicals` directory.
 
+## Overview
+
+- Fortran programming basics
+- Fortran parallel programming & high performance programming
+  - OMP
+  - MPI
+  - Clusters
+- Fortran numerical programming  
+  - BLAS
+  - LAPACK
+  
 ## Build
 
 At this moment, compile each example as
