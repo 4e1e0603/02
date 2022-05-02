@@ -64,7 +64,7 @@ We use Python 3.5+.
 - Make it look like the math.
 - All inputs and outputs explicit.
 - All inputs and outputs carefully named and clearly defined – the
-- closer to the point of declaration the better.
+  closer to the point of declaration the better.
 - Vector is better than loop
 - Matrix is better than vector
 - Unless it’s complicated
