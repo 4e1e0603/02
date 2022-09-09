@@ -53,6 +53,8 @@ We use Python 3.5+.
 
 - https://fortran-lang.org/
 - https://fortran-lang.discourse.group/
+- https://j3-fortran.org/
+- https://github.com/j3-fortran/fortran_proposals
 
 ## Zen of Fortran
 
