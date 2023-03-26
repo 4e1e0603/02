@@ -1,5 +1,0 @@
-@echo off
-a
-if errorlevel 1 echo error .GE. 1
-if errorlevel 2 echo error .GE. 2
-if errorlevel 3 echo error .GE. 3

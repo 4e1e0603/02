@@ -90,12 +90,12 @@ We use Python 3.5+.
 
 
 Configuration = {
-    "note_path": Path("./notes"),
-    "code_path": Path("./codes"),
+    "note_path": Path("./lesson"),
+    "code_path": Path("./source"),
 }
 
-NOTE_PATH = Path("./notes")
-CODE_PATH = Path("./codes")
+NOTE_PATH = Path("./lesson")
+CODE_PATH = Path("./source")
 
 
 def list_files(extension: str, path: Path = ".") -> tuple[Path]:
